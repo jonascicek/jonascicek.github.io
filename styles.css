@@ -57,7 +57,7 @@ h1 {
     align-items: center;
 }
 
-@media screen and (max-width: 500px) {
+@media all and (max-width: 1024px) {
     .navigation a {
       float: none;
       display: flex;

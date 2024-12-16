@@ -1,0 +1,85 @@
+/* Allgemeines Styling */
+.body{
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* App Styling */
+.todo-app{
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 900px;
+    width: 90%;
+}
+
+/*Überschrift Styling*/
+.h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Formular Styling*/
+.todo-form{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 40px;
+}
+
+.todo-input{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.todo-button{
+    background-color: #0078d7;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.todo-button:hover{
+    background-color: #005bb5;
+}
+
+/* Aufgabenliste Styling */
+.todo-list{
+    list-style: none;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    
+}
+
+.checkbox{
+    margin-right: 10px;
+}
+
+.todo-list span{
+    font-size: 1rem;
+}
+
+/* Info Styling */
+.todo-info{
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666666;
+    margin-top: 20px;
+}
+
+
+

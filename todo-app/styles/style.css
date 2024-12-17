@@ -56,13 +56,18 @@
 /* Aufgabenliste Styling */
 .todo-list{
     list-style: none;
-    margin-bottom: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.todo-list li{
     display: flex;
-    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
     background-color: #f9f9f9;
     border-radius: 5px;
-    padding: 10px;
-    
 }
 
 .checkbox{
@@ -80,6 +85,3 @@
     color: #666666;
     margin-top: 20px;
 }
-
-
-

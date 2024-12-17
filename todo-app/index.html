@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="stylesheet" href="styles/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do-App</title>
@@ -8,11 +9,20 @@
 <body>
     <h1>Meine To-Do-Liste</h1>
     <div class="todo-app">
+        <!-- Formular zum Hinzufügen neuer Aufgaben-->
         <form class="todo-form" action="">
-            <input class="todo-input" type="text">
-            <button type="submit" class="todo-button">Hinzufügen</button>
+            <input class="todo-input" type="text" placeholder="Neue Aufgabe hinzufügen">
+            <button type="submit" class="todo-button" aria-label="Aufgabe hinzufügen">Hinzufügen</button>
         </form>
-        <ul class="todo-list"></ul>
+
+        <!-- Liste der Todo -->
+        <ul class="todo-list">
+            <li>
+                <input type="checkbox" class="checkbox" aria-label="Aufgabe Erledigen">
+                <span>HTML Hausaufgabe</span>
+                <button class="buttondelete">Aufgabe löschen</button>
+            </li>
+        </ul>
         <div class="todo-info"></div>
     </div>
 </body>

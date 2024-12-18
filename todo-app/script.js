@@ -9,7 +9,6 @@ let todos = []; // let, da sich der Inhalt des Arrays ändern wird
 // EventListener für das Formular zum Hinzufügen neuer Aufgaben
 form.addEventListener('submit', (event)=>{
     event.preventDefault(); // Stoppt das Standardverhalten des Formulars
-    /*addTodo();*/
     // Erfasst den Text der neuen Aufgabe und entfernt Leerzeichen
     const taskText = input.value.trim();
     
@@ -18,7 +17,7 @@ form.addEventListener('submit', (event)=>{
 
     // Erstellt ein neues Aufgaben-Objekt
     const newTask = {
-        id: Date.now(),
+        id: Date.now(), // Vergibt der Aufgabe eine ID
         text: taskText, // Text der Aufgabe
         completed: false, // Status der Aufgabe (anfangs unerledigt)
     };
@@ -27,7 +26,9 @@ form.addEventListener('submit', (event)=>{
     todos.push(newTask);
     //updateTodoList();
 
-    saveTodos();
+    saveTodos(); // Speichert die Änderung auf localStorage
+
+    alert('Ihre Aufgabe wurde gespeichert.')
 
     // Leert das Eingabefeld
     input.value = '';
@@ -76,6 +77,7 @@ function renderTodos() {
         // EventListener für den Löschen-Button
         deleteButton.addEventListener('click', ()=>{
             todos = todos.filter((t) => t.id !== task.id); // Entfernt die Aufgabe aus dem Array
+            alert('Ihre Aufgabe wurde gelöscht.')
             saveTodos();
             renderTodos(); // Aktualisiert die Anzeige
         });
@@ -90,11 +92,11 @@ function renderTodos() {
     });
 }
 
-function saveTodos(){
+function saveTodos(){ // Funktion zum speichern der Aufgabe auf localStorage
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-function loadTodos(){
+function loadTodos(){ // Funktion zum abrufen der gespeicherten Aufgabe auf localStorage
     const savedTodos = localStorage.getItem('todos');
     if (savedTodos){
         todos = JSON.parse(savedTodos);
@@ -103,5 +105,5 @@ function loadTodos(){
     }
 }
 
-loadTodos();
-renderTodos();
+loadTodos(); // Ruft die Liste mit den aktuellen Aufgaben auf
+renderTodos(); // Zeigt die aufgerufenen Aufgaben an

@@ -19,11 +19,21 @@ body{
 }
 
 /*Überschrift Styling*/
-.h1{
+h1{
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
+    display: flex;
+}
+
+.headline{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 250px;
+    display: flex;
+    position: absolute;
 }
 
 /* Formular Styling*/

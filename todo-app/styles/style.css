@@ -27,15 +27,6 @@ h1{
     display: flex;
 }
 
-.headline{
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bolder;
-    margin-bottom: 250px;
-    display: flex;
-    position: absolute;
-}
-
 /* Formular Styling*/
 .todo-form{
     display: flex;

@@ -7,9 +7,9 @@ const todoList = document.querySelector('.todo-list');
 let todos = []; // let, da sich der Inhalt des Arrays ändern wird
 
 // EventListener für das Formular zum Hinzufügen neuer Aufgaben
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', (event)=>{
     event.preventDefault(); // Stoppt das Standardverhalten des Formulars
-
+    /*addTodo();*/
     // Erfasst den Text der neuen Aufgabe und entfernt Leerzeichen
     const taskText = input.value.trim();
     
@@ -18,12 +18,16 @@ form.addEventListener('submit', (event) => {
 
     // Erstellt ein neues Aufgaben-Objekt
     const newTask = {
+        id: Date.now(),
         text: taskText, // Text der Aufgabe
         completed: false, // Status der Aufgabe (anfangs unerledigt)
     };
 
     // Fügt die neue Aufgabe zum Array hinzu
     todos.push(newTask);
+    //updateTodoList();
+
+    saveTodos();
 
     // Leert das Eingabefeld
     input.value = '';
@@ -38,7 +42,7 @@ function renderTodos() {
     todoList.innerHTML = '';
 
     // Iteriere über das todos-Array und erstelle die HTML-Struktur
-    todos.forEach((task) => {
+    todos.forEach((task)=>{
         // Erstellt ein <li>-Element als Container für die Aufgabe
         const li = document.createElement('li');
 
@@ -49,8 +53,9 @@ function renderTodos() {
         checkbox.setAttribute('aria-label', 'Aufgabe erledigen');
 
         // EventListener für die Checkbox
-        checkbox.addEventListener('change', () => {
+        checkbox.addEventListener('change', ()=>{
             task.completed = checkbox.checked;
+            saveTodos();
             renderTodos(); // Aktualisiere die Anzeige
         });
 
@@ -69,8 +74,9 @@ function renderTodos() {
         deleteButton.setAttribute('aria-label', 'Aufgabe löschen');
 
         // EventListener für den Löschen-Button
-        deleteButton.addEventListener('click', () => {
+        deleteButton.addEventListener('click', ()=>{
             todos = todos.filter((t) => t.id !== task.id); // Entfernt die Aufgabe aus dem Array
+            saveTodos();
             renderTodos(); // Aktualisiert die Anzeige
         });
 
@@ -83,3 +89,19 @@ function renderTodos() {
         todoList.appendChild(li);
     });
 }
+
+function saveTodos(){
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+function loadTodos(){
+    const savedTodos = localStorage.getItem('todos');
+    if (savedTodos){
+        todos = JSON.parse(savedTodos);
+    } else{
+        todos = [];
+    }
+}
+
+loadTodos();
+renderTodos();
